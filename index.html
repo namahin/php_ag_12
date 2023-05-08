@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <!-- Google Font: "Plus Jakarta Sans" -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+    <section class="form-sec">
+        <div class="container">
+            <div class="form">
+                <h1>BMI Calculator</h1>
+                <!-- bmi result -->
+                <div id="bmiResult"></div>
+                <!--  -->
+                <div class="field">
+                    <label for="weightInput">Weight (kg)</label>
+                    <input id="weightInput" type="text" placeholder="Enter your weight" required>
+                </div>
+                <div class="field">
+                    <label for="heightInput">Height (m)</label>
+                    <input id="heightInput" type="text" placeholder="Enter your height" required>
+                </div>
+                <button id="calculateBtn" onclick="bmiCalculate(65,1.8)" class="btn" type="submit">Submit</button>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function bmiCalculate() {
+            var weight = document.getElementById("weightInput").value;
+            var height = document.getElementById("heightInput").value;
+            var bmi = weight / (height * height);
+
+            bmi = bmi.toFixed(2);
+
+            // BMI Conditions
+            if(bmi<18.5){
+                document.getElementById("bmiResult").innerHTML = '<p class="bmi-result">Your BMI is = ' + bmi + ' (Under Weight).</p>';
+            }
+            else if(bmi>=18.5 && bmi<=24.9){
+                document.getElementById("bmiResult").innerHTML = '<p class="bmi-result">Your BMI is = ' + bmi + ' (Normal).</p>';
+            }
+            else if(bmi>=25 && bmi<=29.9){
+                document.getElementById("bmiResult").innerHTML = '<p class="bmi-result">Your BMI is = ' + bmi + ' (Over Weight).</p>';
+            }
+            else if(bmi>=30 && bmi<=34.9){
+                document.getElementById("bmiResult").innerHTML = '<p class="bmi-result">Your BMI is = ' + bmi + ' (Obesity Class I).</p>';
+            }
+            else if(bmi>=35 && bmi<=39.9){
+                document.getElementById("bmiResult").innerHTML = '<p class="bmi-result">Your BMI is = ' + bmi + ' (Obesity Class II).</p>';
+            }
+            else if(bmi>39.9){
+                document.getElementById("bmiResult").innerHTML = '<p class="bmi-result">Your BMI is = ' + bmi + ' (Extreme Obesity).</p>';
+            }
+            else{
+                document.getElementById("bmiResult").innerHTML = 'Invalid Input Data';                
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
