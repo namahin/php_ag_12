@@ -1,0 +1,2 @@
+Deploy link from Netlify:
+https://m-bmi-calculator.netlify.app/
